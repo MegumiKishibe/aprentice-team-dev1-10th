@@ -5,6 +5,8 @@ services:
     volumes:
       - ./public:/var/www/html:cached
       - ./resources:/var/www/resources:cached
+      - ./app:/var/www/app:cached
+      - ./config:/var/www/config:cached
 
     depends_on: [db]
   db:
