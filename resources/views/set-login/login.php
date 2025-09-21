@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>login画面</title>
-  <link rel="stylesheet" href="/css/styleset-home.css" />
+  <!-- <link rel="stylesheet" href="/css/styleset-home.css" /> -->
   <link rel="stylesheet" href="/css/start.css" />
-  <link rel="stylesheet" href="/css/login.css" />
+  <!-- <link rel="stylesheet" href="/css/login.css" /> -->
 </head>
 
 <body>
@@ -22,8 +22,8 @@
         <?php unset($_SESSION['error']); ?>
       <?php endif; ?>
 
-      <!-- aタグではなく、フォームでPOSTする -->
-      <form method="post" action="/index.php?page=signin_verify" id="login-form" novalidate>
+      <!-- aタグではなく、フォームでPOSTする リンクGETではなくフォーム送信-->
+      <form method="post" action="/index.php?page=signin_verify" id="login-form" novalidate><!--PHPでは $_POST[...]で受け取る-->
         <ul class="menu">
           <li class="login-field">
             <label class="login-label" for="email">メールアドレス</label>

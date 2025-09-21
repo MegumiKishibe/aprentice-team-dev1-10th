@@ -59,7 +59,7 @@ switch ($page) {
       (new signinController())->authenticate();
       exit;
     }
-    header('Location: /index.php?page=login');
+    header('Location: /index.php?page=login');//POST以外でアクセスされた場合はloginに戻す
     exit;
 
   // ========== 一般ページ ==========

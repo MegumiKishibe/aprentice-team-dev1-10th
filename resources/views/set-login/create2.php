@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/styleset-home.css" />
   <link rel="stylesheet" href="/css/create2.css" />
   <!-- クリック選択→localStorage保存→hiddenに差し込む -->
-  <script src="/js/create2.js" defer></script>
+  <script src="/js/create2.js" defer></script><!--初動が早くなると聞いたが特に変化なし-->
 </head>
 <body>
   <div class="start">
@@ -33,8 +33,8 @@
 			<form method="post" action="/index.php?page=create2_store" id="register-form">
         <ul class="photo-list">
           <li>
-            <label>
-              <input type="radio" name="body_type_id" value="1" required>
+            <label><!--body_type_idから１つしか選べない。選んだvalueがサーバーへ-->
+              <input type="radio" name="body_type_id" value="1" required><!--必ず選ばせるためのrequired-->
               <img src="/image/man1.png" alt="写真1">
             </label>
           </li>

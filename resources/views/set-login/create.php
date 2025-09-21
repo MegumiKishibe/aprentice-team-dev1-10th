@@ -1,14 +1,13 @@
 <?php ?>
 <!DOCTYPE html>
 <html lang="ja">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create</title>
 
-  <link rel="stylesheet" href="/css/styleset-home.css" />
+  <!-- <link rel="stylesheet" href="/css/styleset-home.css" /> -->
   <link rel="stylesheet" href="/css/start.css" />
-  <link rel="stylesheet" href="/css/login.css" />
+  <!-- <link rel="stylesheet" href="/css/login.css" /> -->
 
 </head>
 <body>
@@ -35,7 +34,7 @@
           <?php unset($_SESSION['error']); // 1回だけ表示するため削除 ?>
         <?php endif; ?>
           <li class="login-field">
-            <label class="login-label" for="email">メールアドレス</label>
+            <label class="login-label" for="email">メールアドレス</label> <!--「for」と「id」を一致させて明示的に関連付け-->
             <input id="email"
             class="login-input card-input"
             type="email"

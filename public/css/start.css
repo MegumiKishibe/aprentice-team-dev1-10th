@@ -1,6 +1,6 @@
 .start {
     background: #d9f2de;
-    min-height: 100vh;
+    min-height: 100vh;/*flexible対応*/
     margin: 0;
     padding: 10px;
 }
@@ -9,7 +9,7 @@
     font-weight: bold;
     text-align: center;
     background: #fff;
-    width: min(90vw, 700px);
+    width: min(90vw, 700px);/*min-width:90vw max-width:700px;と同じ意味*/
     margin: auto;
     padding: 16px 20px; /*4の倍数にしておくと、どんな倍率でも割り切れて崩れにくい。*/
     border-radius: 8px;
@@ -24,7 +24,7 @@
 }
 .start .menu {
     list-style: none;
-    display: grid;
+    display: grid;/*このulの中をグリッドレイアウトにする*/
     gap: 40px;
     width: min(90vw, 520px);
     margin: 40px auto;
@@ -33,21 +33,21 @@
 .start .card {
     font-size: clamp(18px, 2.8vw, 24px);
     color: #000;
-    display: block;
+    display: block;/*リンク全体をクリック可能にする*/
     text-align: center;
     background: #fff;
     text-decoration: none;
     padding: 16px 24px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,.5);
-    transition: transform .25s ease, box-shadow .25s ease;
+    transition: transform .25s ease, box-shadow .25s ease;/*変化にかける時間と変化の仕方を指定*/
 }
 .start .card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px);/*Y軸方向に-2移動*/
     box-shadow: 0 6px 0 rgba(0,0,0,.2);
 }
 .start .card:active {
-    transform: translateY(0);
+    transform: translateY(0);/*Y軸方向に0移動*/
     box-shadow: 0 4px 0 rgba(0,0,0,.15);
 }
 .start .start-footer {
