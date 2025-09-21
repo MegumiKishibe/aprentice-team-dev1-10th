@@ -1,4 +1,9 @@
-
+<?php
+require_once '/var/www/app/Controllers/homeController.php';
+$controller = new HomeController();
+$data = $controller->handle($_POST);
+$values = $data['values'];
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,6 +18,8 @@
 
 <body>
   <!-- header ---------------------------------------------->
+
+
   <div class="page-wrapper">
     <div id="top">
       <div class="page-header wrapper">
@@ -21,8 +28,17 @@
 
           <nav class="top-nav">
             <ul>
+
+              <li style="all: unset;">
+                <?php if (!empty($_SESSION['user'])): ?>
+                  <span class="login-success" style="color:green;">
+                    ようこそ、<?= htmlspecialchars($_SESSION['user']['user_name'], ENT_QUOTES, 'UTF-8'); ?> さん！
+                  </span>
+                <?php endif; ?>
+              </li>
+    
               <li><a href="index.php?page=home-setting">ユーザー名⚙️</a></li>
-              <li class="logout"><a href="index.php?page=login">ログアウト</a></li>
+              <li class="logout"><a href="index.php?page=signout">ログアウト</a></li>
             </ul>
           </nav>
         </div>
@@ -41,8 +57,8 @@
           <h3>一日の目標摂取量</h3>
           <div class="section-content">
             <div class="form-img">
-              <img src="/image/man2.png" alt="">
-              <span>マッチョ</span>
+              <img src="<?= htmlspecialchars($values['image_path']) ?>" alt="">
+              <span><?= htmlspecialchars($values['body_type_name']) ?></span>
             </div>
 
             <form action="">
@@ -54,17 +70,17 @@
                 </div>
                 <div class="form">
                   <label for="pro">たんぱく質</label>
-                  <input type="number" name="pro" id="pro">
+                  <input type="number" name="pro" id="pro" value="<?= htmlspecialchars($values['protein']) ?>">
                   <span>g</span>
                 </div>
                 <div class="form">
                   <label for="fat">脂質　　　</label>
-                  <input type="number" name="fat" id="fat">
+                  <input type="number" name="fat" id="fat" value="<?= htmlspecialchars($values['fat']) ?>">
                   <span>g</span>
                 </div>
                 <div class="form">
                   <label for="carb0">炭水化物　</label>
-                  <input type="number" name="carbo" id="carbo">
+                  <input type="number" name="carbo" id="carbo" value="<?= htmlspecialchars($values['carbohydrates']) ?>">
                   <span>g</span>
                 </div>
               </div>
@@ -72,11 +88,15 @@
           </div>
         </div>
 
-        <p>こつこつ記録バー</p>
+        <div class="bar wrapper">
+        <h3>こつこつ記録バー</h3>
+        <div id="countArea"></div>
+
         <div class="progress-bar">
-          <div class="progress" style="width: 60%;"></div>
-          <div class="marker"></div>
+          <div class="progress"></div>
+          <div class="ticks"></div>
         </div>
+      </div>
 
       </section>
       <!-- 右サイド -------------------------------------------------->
@@ -88,22 +108,22 @@
             <div class="measure">
               <div class="form">
                 <label for="">体重　　</label>
-                <input type="number" name="weight" id="weight">
+                <input type="number" name="weight" id="weight" value="<?= htmlspecialchars($values['weight']) ?>">
                 <span>kg</span>
               </div>
               <div class="form">
                 <label for="height">身長　　</label>
-                <input type="number" name="height" id="heightt">
+                <input type="number" name="height" id="heightt" value="<?= htmlspecialchars($values['height']) ?>">
                 <span>cm</span>
               </div>
               <div class="form">
                 <label for="">体脂肪率　</label>
-                <input type="number" name="bodyFat" id="bodyFat">
+                <input type="number" name="bodyFat" id="bodyFat" value="<?= htmlspecialchars($values['body_fat']) ?>">
                 <span>%</span>
               </div>
               <div class="form">
                 <label for="">筋肉量　</label>
-                <input type="number" name="muscle" id="muscle">
+                <input type="number" name="muscle" id="muscle" value="<?= htmlspecialchars($values['muscle_mass']) ?>">
                 <span>kg</span>
               </div>
             </div>
@@ -132,6 +152,8 @@
       </div>
     </footer>
   </div>
+
+  <script src="js/home.js"></script>
 
 </body>
 

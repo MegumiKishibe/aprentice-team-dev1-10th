@@ -1,0 +1,66 @@
+.start {
+    background: #d9f2de;
+    min-height: 100vh;/*flexible対応*/
+    margin: 0;
+    padding: 10px;
+}
+.start .title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
+    width: min(90vw, 700px);/*min-width:90vw max-width:700px;と同じ意味*/
+    margin: auto;
+    padding: 16px 20px; /*4の倍数にしておくと、どんな倍率でも割り切れて崩れにくい。*/
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.5);
+}
+.start ul li {
+    box-shadow: none;
+}
+.start .inner {
+    text-align: center;
+
+}
+.start .menu {
+    list-style: none;
+    display: grid;/*このulの中をグリッドレイアウトにする*/
+    gap: 40px;
+    width: min(90vw, 520px);
+    margin: 40px auto;
+    padding: auto;
+}
+.start .card {
+    font-size: clamp(18px, 2.8vw, 24px);
+    color: #000;
+    display: block;/*リンク全体をクリック可能にする*/
+    text-align: center;
+    background: #fff;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.5);
+    transition: transform .25s ease, box-shadow .25s ease;/*変化にかける時間と変化の仕方を指定*/
+}
+.start .card:hover {
+    transform: translateY(-2px);/*Y軸方向に-2移動*/
+    box-shadow: 0 6px 0 rgba(0,0,0,.2);
+}
+.start .card:active {
+    transform: translateY(0);/*Y軸方向に0移動*/
+    box-shadow: 0 4px 0 rgba(0,0,0,.15);
+}
+.start .start-footer {
+    font-size: small;
+}
+.card-input {
+    display:block;
+    width:100%;
+    padding:1rem 1.25rem;
+    border:0;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,.15);
+    background:#fff;
+    font-size:1.1rem;
+}
+.card-input::placeholder { color:#999; }
